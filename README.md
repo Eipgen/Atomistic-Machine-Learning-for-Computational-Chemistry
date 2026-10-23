@@ -1,9 +1,13 @@
-# Neural-Network-Models-for-Chemistry
+# Atomistic Machine Learning for Computational Chemistry
 [![Check Markdown links](https://github.com/DiracMD/Neural-Network-Models-for-chemistry/actions/workflows/main.yml/badge.svg)](https://github.com/DiracMD/Neural-Network-Models-for-chemistry/actions/workflows/main.yml)
 
-A collection of Neural Network Models for chemistry
-- [Quantum Chemistry Method](https://github.com/Eipgen/Neural-Network-Models-for-Chemistry/blob/main/README.md#quantum-chemistry-method)
-- [Force Field Method](https://github.com/Eipgen/Neural-Network-Models-for-Chemistry#force-field-method)
+A curated collection of atomistic machine-learning models and methods for computational chemistry.
+Last reviewed: 2026-10-23
+
+This list covers neural-network and machine-learning models used in quantum chemistry, atomistic force fields, semi-empirical quantum mechanics, coarse-grained simulation, enhanced sampling, and QM/MM. Each entry is organized as **model - primary project or paper link - description**. The description states the model's main representation, target, and intended use where that information is available from the linked source.
+
+- [Quantum Chemistry Method](#quantum-chemistry-method)
+- [Force Field Method](#force-field-method)
    - Kernel Methods
    - Not based on Graph Models
    - Graph Domain Models
@@ -11,10 +15,18 @@ A collection of Neural Network Models for chemistry
    - Universal models
    - Empirical force field
 
-- [Semi-Empirical Method](https://github.com/Eipgen/Neural-Network-Models-for-Chemistry/blob/main/README.md#Semi-Empirical-Quantum-Mechanical-Method)
-- [Coarse-Grained Method](https://github.com/Eipgen/Neural-Network-Models-for-Chemistry/blob/main/README.md#Coarse-Grained-Method)
-- [Enhanced Sampling Method](https://github.com/Eipgen/Neural-Network-Models-for-Chemistry/blob/main/README.md#Enhanced-Sampling-Method)
-- [QM/MM Method](https://github.com/Eipgen/Neural-Network-Models-for-Chemistry/blob/main/README.md#QMMM-Model)
+- [Semi-Empirical Method](#semi-empirical-quantum-mechanical-method)
+- [Coarse-Grained Method](#coarse-grained-method)
+- [Enhanced Sampling Method](#enhanced-sampling-method)
+- [QM/MM Method](#qmmm-model)
+
+### Recently added or updated models
+
+- [UMA](https://huggingface.co/facebook/UMA) is a universal atomistic foundation model for energies, forces, and related properties across molecules, materials, and heterogeneous systems. It is distributed through the Fairchem ecosystem and is intended for zero- or low-shot atomistic prediction and simulation.
+- [Orb-V3](https://github.com/orbital-materials/orb-models) is a transferable equivariant neural network potential trained on the OMol25 dataset. It predicts energies and forces for broad organic and inorganic molecular chemistry, including metal complexes, biomolecules, and electrolytes.
+- [MatterSim](https://github.com/microsoft/mattersim) is a pretrained foundation model for materials simulation. It learns atomistic energies and forces from large-scale materials data and can be used for structure relaxation, molecular dynamics, and materials property prediction.
+- [SevenNet](https://github.com/MDIL-SNU/SevenNet) is an E(3)-equivariant graph neural network potential designed for accurate and efficient molecular-dynamics simulations of materials. It provides pretrained universal potentials and supports distributed training and inference.
+- [MACE](https://github.com/ACEsuit/mace) is an equivariant message-passing architecture for atomistic potentials. Its higher-order body correlations support accurate energy, force, stress, and property prediction while remaining efficient enough for molecular dynamics.
 
 ## Quantum Chemistry Method
 
@@ -359,6 +371,8 @@ Our findings suggest that Transformers can learn many of the graph-based inducti
 
 ### Universal model
 
+Universal models are pretrained or broadly trained atomistic potentials intended to transfer across many molecules, elements, or materials rather than fitting one narrow chemical system. Their descriptions below distinguish the model family from a particular checkpoint or dataset.
+
 - [egret](https://github.com/rowansci/egret-public)  
   This repository contains the Egret family of neural network potentials, developed by Rowan using the MACE architecture.
 
@@ -366,19 +380,25 @@ Our findings suggest that Transformers can learn many of the graph-based inducti
   The resulting model, eSEN, provides state-of-the-art results on a range of physical property prediction tasks,
 
 - [UNA](https://huggingface.co/facebook/UMA)  
-  UMA: A Family of Universal Models for Atoms, a modified model of eSEN.
+  UMA (Universal Models for Atoms) is a family of pretrained atomistic foundation models derived from the Fairchem ecosystem. It predicts energies and forces for molecular and materials systems and is designed to provide a strong starting point for prediction, relaxation, and molecular dynamics across chemical domains.
 
 - [AIMNET](https://github.com/aiqm/aimnet)  
 This repository contains reference AIMNet implementation along with some examples and menchmarks.
 
 - [AIMNet2](https://github.com/isayevlab/AIMNet2)  
-A general-purpose neural netrork potential for organic and element-organic molecules.
+A general-purpose neural network potential for organic and element-organic molecules. AIMNet2 uses learned atomic representations with charge-aware interactions to predict molecular energies, forces, and related quantum-chemical properties.
 
 - [MACE-OFF23](https://github.com/ACEsuit/mace-off)  
- This repository contains the MACE-OFF23 pre-traained transferable organic force fields.
+ This repository contains pretrained MACE-OFF23 transferable organic force fields. The models use equivariant message passing to predict energies and forces for organic molecules and are intended for geometry optimization and molecular-dynamics workflows.
 
 - [Orb-V3](https://github.com/orbital-materials/orb-models)  
-Trained on the Open Molecules 2025 (OMol25) dataset—over 100M high-accuracy DFT calculations (ωB97M-V/def2-TZVPD) on diverse molecular systems including metal complexes, biomolecules, and electrolytes.
+Trained on the Open Molecules 2025 (OMol25) dataset, containing more than 100 million high-accuracy DFT calculations at the ωB97M-V/def2-TZVPD level. Orb-V3 is an equivariant transferable potential for energies and forces across diverse molecular systems, including metal complexes, biomolecules, and electrolytes.
+
+- [MatterSim](https://github.com/microsoft/mattersim)
+MatterSim is a pretrained atomistic foundation model for materials simulation. It learns energies and forces from broad materials data and supports structure relaxation, molecular dynamics, and property prediction across inorganic materials and molecules.
+
+- [SevenNet](https://github.com/MDIL-SNU/SevenNet)
+SevenNet is an E(3)-equivariant graph neural network potential for efficient materials simulation. It offers pretrained universal potentials as well as tools for training and distributed inference, with energies, forces, and stresses as primary atomistic targets.
 
 ### Empirical force field
 
